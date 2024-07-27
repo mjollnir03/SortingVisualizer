@@ -1,42 +1,15 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Basic window
-*
-*   Welcome to raylib!
-*
-*   To test examples, just press F6 and execute raylib_compile_execute script
-*   Note that compiled executable is placed in the same folder as .c file
-*
-*   You can find all basic examples on C:\raylib\raylib\examples folder or
-*   raylib official webpage: www.raylib.com
-*
-*   Enjoy using raylib. :)
-*
-*   Example originally created with raylib 1.0, last time updated with raylib 1.0
-*
-*   Example licensed under an unmodified zlib/libpng license, which is an OSI-certified,
-*   BSD-like license that allows static linking with closed source software
-*
-*   Copyright (c) 2013-2024 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
-
 #include "raylib.h"
+#include "settings.h"
+#include "sstream"
 
-//------------------------------------------------------------------------------------
-// Program main entry point
-//------------------------------------------------------------------------------------
+void DrawGridWithDots(int screenWidth, int screenHeight, int dotSpacing);
+void DisplayMousePosition();
+
 int main(void)
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
-
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Sorting Visualizer - By Ellmaer Ranjber");
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -50,9 +23,15 @@ int main(void)
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(backgroundColor);
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+        DrawText("Sorting", 550, 300, 120, boldColor);
+        DrawText("Visualizer", 480, 420, 120, boldColor);
+        DrawText("- By Ellmaer Ranjber", 1050, 850, 50, boldColor);
+
+        // Draw the grid with dots
+        //DrawGridWithDots(screenWidth, screenHeight, 50);
+        DisplayMousePosition();
 
         EndDrawing();
         //----------------------------------------------------------------------------------
@@ -61,7 +40,40 @@ int main(void)
     // De-Initialization
     //--------------------------------------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
 
     return 0;
+}
+
+
+void DrawGridWithDots(int screenWidth, int screenHeight, int dotSpacing)
+{
+    // Draw vertical lines with dots
+    for (int x = 0; x <= screenWidth; x += dotSpacing)
+    {
+        DrawLine(x, 0, x, screenHeight, BLACK); // Draw vertical line
+
+        // Draw dots at each vertical line
+        for (int y = 0; y <= screenHeight; y += dotSpacing)
+        {
+            DrawCircle(x, y, 2, BLACK); // Draw dot
+        }
+    }
+
+    // Draw horizontal lines with dots
+    for (int y = 0; y <= screenHeight; y += dotSpacing)
+    {
+        DrawLine(0, y, screenWidth, y, BLACK); // Draw horizontal line
+    }
+}
+
+void DisplayMousePosition() {
+    // Get current mouse position
+    Vector2 mousePos = GetMousePosition();
+
+    // Convert mouse position to string
+    std::stringstream ss;
+    ss << "Mouse Position: (" << static_cast<int>(mousePos.x) << ", " << static_cast<int>(mousePos.y) << ")";
+
+    // Display mouse position in black text
+    DrawText(ss.str().c_str(), 10, 10, 20, BLACK);
 }
