@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "settings.h"
 
 // Function declarations
 // Function to help visualize spacing within application
