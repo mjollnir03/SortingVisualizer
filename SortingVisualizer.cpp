@@ -14,7 +14,8 @@ int main(void) {
 
         ClearBackground(backgroundColor);
 
-        DrawCenteredTextWithButton("Sorting Visualizer", 120, 300, boldColor, boldColor, 100, "Click to Start");
+        // in "functions.h"
+        DrawTitleScreen();
 
         DrawText("- By Ellmaer Ranjber", 1050, 840, 50, boldColor);
 
