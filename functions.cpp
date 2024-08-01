@@ -31,28 +31,39 @@ void DisplayMousePosition() {
     DrawText(ss.str().c_str(), 10, 10, 20, BLACK);
 }
 
-void DrawCenteredTextWithButton(const char* text, int fontSize, int yPos, Color textColor, Color buttonColor, int buttonHeight, const char* buttonText) {
+
+void DrawTitleScreen() {
+
+    const char* title = "Sorting Visualizer";
+
     // Calculate text dimensions
-    int textWidth = MeasureText(text, fontSize);
-    int textHeight = fontSize;  // The height of the text is approximately the font size
+    int titleWidth = MeasureText(title, xxlargeFont);
+    int titleHeight = xxlargeFont;
 
-    // Calculate text position
-    int textX = (screenWidth - textWidth) / 2;  // Centered horizontally
+    // Calculate text x-pos, (cenetered horizontally)
+    int titleXPos = (screenWidth - titleWidth) / 2;
+    int titleYPos = 300;
 
-    // Calculate rectangle dimensions and position
-    int rectWidth = textWidth / 2;
-    int rectX = (screenWidth - rectWidth) / 2;
-    int rectY = yPos + textHeight + 40;  // Positioned directly beneath the text with some spacing
+    // Draw the Title
+    DrawText(title, titleXPos, titleYPos, xxlargeFont, boldColor);
 
-    // Draw the text
-    DrawText(text, textX, yPos, fontSize, textColor);
+    // Declare Button attributes 
+    int rectWidth = 570;
+    int rectHeight = 100;
 
-    // Draw the rectangle centered underneath the text
-    DrawRectangle(rectX, rectY + 20, rectWidth, buttonHeight, buttonColor);
+    int rectXPos = (screenWidth - rectWidth) / 2;
+    int rectYPos = 475;
 
-    // Draw the button text
-    int buttonTextWidth = MeasureText(buttonText, fontSize - 50);  // Adjust font size inside button
-    int buttonTextX = rectX + (rectX - buttonTextWidth);
-    int buttonTextY = rectY + 40;
-    DrawText(buttonText, buttonTextX, buttonTextY, fontSize - 50, backgroundColor);
+    // Draw the Button
+    DrawRectangle(rectXPos, rectYPos, rectWidth, rectHeight, boldColor);
+
+    const char* buttonText = "Click to Start";
+
+    int buttonTextWidth = MeasureText(buttonText, largeFont);
+    int buttonTextXPos = rectXPos + (rectWidth - buttonTextWidth) / 2;
+    int buttontextYPos = rectYPos + (rectHeight - largeFont) / 2; // assuming a font size of 75 aka largeFont
+
+    DrawText(buttonText, buttonTextXPos, buttontextYPos, largeFont, backgroundColor);
+
 }
+
