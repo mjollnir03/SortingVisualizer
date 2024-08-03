@@ -2,6 +2,16 @@
 #include "settings.h"
 #include "TitleScreen.h"
 
+// Button Class Definition
+TitleScreen::Button::Button() {
+
+}
+
+void TitleScreen::Button::DrawButton() {
+
+}
+
+
 // TitleText Struct Definition 
 TitleScreen::TitleText::TitleText() {
 	this->title = "Sorting Visualizer";
@@ -16,6 +26,14 @@ void TitleScreen::TitleText::DrawTitleText() {
 }
 
 
+// TitleWaterMark Definition
+TitleScreen::TitleWaterMark::TitleWaterMark() {
+
+}
+
+void TitleScreen::TitleWaterMark::DrawTitleWaterMark() {
+
+}
 
 
 // Main TitleScreen Class Defintions
