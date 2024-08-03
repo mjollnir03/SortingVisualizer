@@ -1,54 +1,70 @@
 #pragma once
 #include "settings.h"
 // Title Screen Class Declarations
-// 
-// (Move definitions to "TitleScreen.cpp" file)
 
 class TitleScreen {
 private:
 	
-	struct TitleButton {
-	public:
-		int buttonHeight;
-		int buttonWidth;
+	class Button {
+	private:
+		// Button Rectangle 
+		int rectWidth;
+		int rectHeight;
+		int rectXPos;
+		int rectYPos;
+		Color rectangleColor;
+
+		//Button Text 
 		const char* buttonText;
-		TitleButton(int height, int width, const char* text) {
-			this->buttonHeight = height;
-			this->buttonWidth = width;
-			this->buttonText = text;
-		}
+		int buttonTextWidth;
+		int buttonTextXPos;
+		int buttontextYPos;
+		int buttonFontSize;
+		Color buttonColor;
+
+	public:
+		Button();
+		void DrawButton();
+
 	};
 
-	struct TitleButton {
+	struct TitleText {
+	private:
+		const char* title;
+		int titleWidth;
+		int titleHeight;
+		int titleXPos;
+		int titleYPos;
+		int fontSize;
+		Color color;
 	public:
-
+		TitleText();
+		void DrawTitleText();
+		
 	};
 
 	struct TitleWaterMark {
+	private:
+		const char* text;
+		int XPos;
+		int YPos;
+		int fontSize;
+		Color color;
 	public:
+		TitleWaterMark();
+		void DrawTitleWaterMark();
 
 	};
 
 public:
-	// Title Message variables
-	const char* titleText;
-	// Water mark 
-	const char* waterMark;
-	TitleButton* button;
+	// Class variables here ...
+	Button* titleButton;
+	TitleScreen* titleText;
+	TitleWaterMark* titleWaterMark;
 	
 	
+	TitleScreen();
 
-	TitleScreen() {
-		this->titleText = "Sorting Visualizer";
-		this->titleText = "- By Ellmaer Ranjber";
-		this->button = new TitleButton(10, 10, "Click to Start");
-	}
-
-	void DrawTitleScreen() {
-
-
-		// Draw Water Mark, bottom right of screen
-		DrawText("- By Ellmaer Ranjber", 1050, 840, 50, boldColor);
-	}
+	void DrawTitleScreen();
 
 };
