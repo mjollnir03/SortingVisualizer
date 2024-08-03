@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="SortingVisualizer.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functions.h" />
