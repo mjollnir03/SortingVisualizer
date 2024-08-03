@@ -4,7 +4,7 @@
 
 // Main Function
 int main(void) {
-    InitWindow(screenWidth, screenHeight, "Sorting Visualizer - By Ellmaer Ranjber");
+    InitWindow(SCREENWIDTH, SCREENHEIGHT, "Sorting Visualizer - By Ellmaer Ranjber");
 
     SetTargetFPS(60);  // Set our game to run at 60 frames-per-second
 
@@ -17,7 +17,7 @@ int main(void) {
         // in "functions.h"
         DrawTitleScreen();
 
-        DrawText("- By Ellmaer Ranjber", 1050, 840, 50, boldColor);
+        DrawText("- By Ellmaer Ranjber", 1050, 840, mediumFont, boldColor);
 
         // Draw the grid with dots
         //DrawGridWithDots(screenWidth, screenHeight, 50);
