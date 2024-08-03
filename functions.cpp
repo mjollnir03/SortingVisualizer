@@ -41,7 +41,7 @@ void DrawTitleScreen() {
     int titleHeight = xxlargeFont;
 
     // Calculate text x-pos, (cenetered horizontally)
-    int titleXPos = (screenWidth - titleWidth) / 2;
+    int titleXPos = (SCREENWIDTH - titleWidth) / 2;
     int titleYPos = 300;
 
     // Draw the Title
@@ -51,7 +51,7 @@ void DrawTitleScreen() {
     int rectWidth = 570;
     int rectHeight = 100;
 
-    int rectXPos = (screenWidth - rectWidth) / 2;
+    int rectXPos = (SCREENWIDTH - rectWidth) / 2;
     int rectYPos = 475;
 
     // Draw the Button
