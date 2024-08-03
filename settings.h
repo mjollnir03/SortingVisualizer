@@ -11,8 +11,8 @@ const Color boldColor = GetColor(0x1A5319FF);
 const Color fontColor = GetColor(0x508D4EFF);
 
 // Screen sizes
-const int screenWidth = 1600;
-const int screenHeight = 900;
+const int SCREENWIDTH = 1600;
+const int SCREENHEIGHT = 900;
 
 // Font sizes
 const int xxlargeFont = 125;
