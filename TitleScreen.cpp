@@ -27,7 +27,33 @@ void TitleScreen::Button::DrawButton() {
 
     // Draw the Button Text
     DrawText(this->buttonText, this->buttonTextXPos, this->buttonTextYPos, this->buttonFontSize, this->buttonColor);
+
+    //TESTING 
+    DrawCircle(rectXPos, rectYPos, 20, RED);
+    DrawCircle(rectXPos + rectWidth, rectYPos, 20, GREEN);
+    DrawCircle(rectXPos, rectYPos + rectHeight, 20, BLUE);
+    DrawCircle(rectXPos + rectWidth, rectYPos + rectHeight, 20, BLACK);
+
 }
+
+bool TitleScreen::Button::buttonClicked() {
+    if (!IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+        return false;
+    }
+    Vector2 mousePos = GetMousePosition();
+    if (this->rectXPos <= static_cast<int>(mousePos.x) &&
+        static_cast<int>(mousePos.x) <= this->rectXPos + this->rectWidth &&
+        this->rectYPos <= static_cast<int>(mousePos.y) &&
+        static_cast<int>(mousePos.y) <= this->rectYPos + this->rectHeight) {
+        
+        std::cout << "BUTTON CLICKED" << std::endl;
+        return true;
+    }
+    
+
+    return false;
+}
+
 
 
 // TitleText Struct Definition 
@@ -76,6 +102,10 @@ void TitleScreen::DrawTitleScreen() {
 
     // Draw the Watermark
     this->titleWaterMark->DrawTitleWaterMark();
+
+
+    //TESTING 
+    this->titleButton->buttonClicked();
 }
 
 
