@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "settings.h"
 #include "functions.h"
+#include "TitleScreen.h"
 
 // Main Function
 int main(void) {
@@ -14,10 +15,8 @@ int main(void) {
 
         ClearBackground(backgroundColor);
 
-        // in "functions.h"
-        DrawTitleScreen();
-
-        DrawText("- By Ellmaer Ranjber", 1050, 840, mediumFont, boldColor);
+        TitleScreen* titleScreen = new TitleScreen();
+        titleScreen->DrawTitleScreen();
 
         // Draw the grid with dots
         //DrawGridWithDots(screenWidth, screenHeight, 50);
