@@ -11,6 +11,7 @@ int main(void) {
 
     // Variables 
     bool titleButtonClicked = false;
+    TitleScreen* titleScreen = new TitleScreen();
 
 
     // Main game loop
@@ -19,9 +20,14 @@ int main(void) {
 
         ClearBackground(backgroundColor);
 
-        // Display Title Screen with title, button, and watermark
-        TitleScreen* titleScreen = new TitleScreen();
-        titleScreen->DrawTitleScreen();
+        if (!titleButtonClicked) {
+            // Display Title Screen with title, button, and watermark
+            titleScreen->DrawTitleScreen();
+        }
+        
+        if(titleScreen->TitleButtonClicked()) {
+            titleButtonClicked = true;
+        }
 
         // Check if Title Screen button is clicked
 
