@@ -137,14 +137,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AlgorithmScreen.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="SortingVisualizer.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlgorithmScreen.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="TitleScreen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="misc.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
