@@ -1,33 +1,10 @@
 #pragma once
 #include "settings.h"
+#include "Button.h"
 
 // Title Screen Class Declarations
 class TitleScreen {
 private:
-
-    // Button Class Declaration
-    class Button {
-    private:
-        // Button Rectangle
-        int rectWidth;
-        int rectHeight;
-        int rectXPos;
-        int rectYPos;
-        Color rectangleColor;
-
-        // Button Text
-        const char* buttonText;
-        int buttonTextWidth;
-        int buttonTextXPos;
-        int buttonTextYPos;
-        int buttonFontSize;
-        Color buttonColor;
-
-    public:
-        Button();           // Constructor
-        void DrawButton();  // Method to draw the button
-        bool buttonClicked(); // Method to see if title screen button is clicked
-    };
 
     // TitleText Struct Declaration
     struct TitleText {
@@ -67,4 +44,5 @@ public:
 
     TitleScreen();              // Constructor
     void DrawTitleScreen();     // Method to draw the entire title screen
+    bool TitleButtonClicked();
 };
