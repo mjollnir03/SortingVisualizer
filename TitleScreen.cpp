@@ -2,59 +2,6 @@
 #include "settings.h"
 #include "TitleScreen.h"
 
-// Button Class Definition
-TitleScreen::Button::Button() {
-    // Button Rectangle
-    this->rectWidth = 570;
-    this->rectHeight = 100;
-    this->rectXPos = (SCREENWIDTH - rectWidth) / 2;
-    this->rectYPos = 475;
-    this->rectangleColor = boldColor; 
-
-    // Button Text
-    this->buttonText = "Click to Start";
-    this->buttonTextWidth = MeasureText(buttonText, largeFont);
-    this->buttonTextXPos = rectXPos + (rectWidth - buttonTextWidth) / 2;
-    this->buttonTextYPos = rectYPos + (rectHeight - largeFont) / 2;
-    this->buttonFontSize = largeFont;
-    this->buttonColor = backgroundColor; 
-}
-
-
-void TitleScreen::Button::DrawButton() {
-    // Draw the Button
-    DrawRectangle(this->rectXPos, this->rectYPos, this->rectWidth, this->rectHeight, this->rectangleColor);
-
-    // Draw the Button Text
-    DrawText(this->buttonText, this->buttonTextXPos, this->buttonTextYPos, this->buttonFontSize, this->buttonColor);
-
-    //TESTING 
-    DrawCircle(rectXPos, rectYPos, 20, RED);
-    DrawCircle(rectXPos + rectWidth, rectYPos, 20, GREEN);
-    DrawCircle(rectXPos, rectYPos + rectHeight, 20, BLUE);
-    DrawCircle(rectXPos + rectWidth, rectYPos + rectHeight, 20, BLACK);
-
-}
-
-bool TitleScreen::Button::buttonClicked() {
-    if (!IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-        return false;
-    }
-    Vector2 mousePos = GetMousePosition();
-    if (this->rectXPos <= static_cast<int>(mousePos.x) &&
-        static_cast<int>(mousePos.x) <= this->rectXPos + this->rectWidth &&
-        this->rectYPos <= static_cast<int>(mousePos.y) &&
-        static_cast<int>(mousePos.y) <= this->rectYPos + this->rectHeight) {
-        
-        std::cout << "BUTTON CLICKED" << std::endl;
-        return true;
-    }
-    
-
-    return false;
-}
-
-
 
 // TitleText Struct Definition 
 TitleScreen::TitleText::TitleText() {
@@ -88,7 +35,7 @@ void TitleScreen::TitleWaterMark::DrawTitleWaterMark() {
 
 // Main TitleScreen Class Definitions
 TitleScreen::TitleScreen() {
-    this->titleButton = new Button();
+    this->titleButton = new Button(570, 100, 0, 475, boldColor, "Click to Start", backgroundColor, largeFont, true);
     this->titleText = new TitleText();
     this->titleWaterMark = new TitleWaterMark();
 }
@@ -103,9 +50,11 @@ void TitleScreen::DrawTitleScreen() {
     // Draw the Watermark
     this->titleWaterMark->DrawTitleWaterMark();
 
-
-    //TESTING 
-    this->titleButton->buttonClicked();
 }
 
+
+bool TitleScreen::TitleButtonClicked() {
+
+    return this->titleButton->buttonClicked();
+}
 
