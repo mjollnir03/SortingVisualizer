@@ -23,13 +23,19 @@ int main(void) {
         if (!titleButtonClicked) {
             // Display Title Screen with title, button, and watermark
             titleScreen->DrawTitleScreen();
-        }
-        
-        if(titleScreen->TitleButtonClicked()) {
-            titleButtonClicked = true;
+            // Check if Title Screen button is clicked
+            if (titleScreen->TitleButtonClicked()) {
+                titleButtonClicked = true;
+            }
         }
 
-        // Check if Title Screen button is clicked
+        
+        // Display Algorithm Selection Screen here ...
+
+        
+
+       
+        
 
 
         // Draw the grid with dots
