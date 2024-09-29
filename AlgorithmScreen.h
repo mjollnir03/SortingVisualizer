@@ -6,6 +6,8 @@ class AlgorithmScreen {
 private:
 
 public:
+	AlgorithmScreen();
+	void DrawAlgorithmScreen();
 
 
 };
