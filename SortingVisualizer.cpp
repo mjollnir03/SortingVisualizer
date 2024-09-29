@@ -2,6 +2,7 @@
 #include "settings.h"
 #include "functions.h"
 #include "TitleScreen.h"
+#include "AlgorithmScreen.h"
 
 // Main Function
 int main(void) {
@@ -12,6 +13,8 @@ int main(void) {
     // Variables 
     bool titleButtonClicked = false;
     TitleScreen* titleScreen = new TitleScreen();
+    AlgorithmScreen* algorithmScreen = new AlgorithmScreen();
+
 
 
     // Main game loop
@@ -31,6 +34,9 @@ int main(void) {
 
         
         // Display Algorithm Selection Screen here ...
+        if (titleButtonClicked) {
+            algorithmScreen->DrawAlgorithmScreen();
+        }
 
         
 
@@ -39,7 +45,7 @@ int main(void) {
 
 
         // Draw the grid with dots
-        //DrawGridWithDots(screenWidth, screenHeight, 50);
+        DrawGridWithDots(SCREENWIDTH, SCREENHEIGHT, 50);
         DisplayMousePosition();
 
         EndDrawing();
